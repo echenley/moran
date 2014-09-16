@@ -1,0 +1,18 @@
+{{!< default}}
+
+<header class="main-header" style="background-image: url({{@blog.cover}})">
+	<div class="vertical">
+		<div class="main-header-content inner">
+			<h1 class="page-title blog-title">{{@blog.title}}</h1>
+		</div>
+	</div>
+</header>
+
+<main id="content" class="content" role="main">
+    <div class="inner">
+		<div class="scratch-page-number">
+		    &mdash; {{pagination.page}} &mdash;
+		</div>
+	    {{> loop}}
+    </div>
+</main>
