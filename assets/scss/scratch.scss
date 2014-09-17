@@ -103,6 +103,11 @@ body {
     }
 }
 
+
+
+/* General
+====================================== */
+
 h1,h2,h3,h4,h5,h6 {
     font-family: $heading-font;
     font-feature-settings: "kern" 1, "liga";
@@ -252,6 +257,9 @@ tbody tr {
     &:hover {
         background: rgba($gray, 0.1);
     }
+    &:last-child {
+        border-bottom: 1px solid $primary-dark;
+    }
 }
 
 // code
@@ -318,10 +326,8 @@ pre {
 
 
 
-/* Header/Footer
+/* Header
 ====================================== */
-
-// header
 
 .main-header {
     position: relative;
@@ -388,7 +394,10 @@ pre {
     }
 }
 
-// footer
+
+
+/* Footer
+====================================== */
 
 .site-footer {
     padding: 0 $margin-small;
@@ -593,11 +602,17 @@ img.align-right, .caption.align-right {
 
 @media screen and (min-width: $breakpoint) {
 
+    .align-left,
+    .align-right {
+        margin: 0;
+    }
     .align-left {
         float: left;
+        margin-right: 0.9rem;
     }
     .align-right {
         float: right;
+        margin-left: 0.9rem;
     }
 
     img.align-left, .caption.align-left,
