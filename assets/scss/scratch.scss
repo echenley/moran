@@ -406,10 +406,7 @@ pre {
     font-size: 80%;
     background: $primary-dark;
     color: $primary-light;
-    a {
-        display: inline-block;
-        color: $primary-light;
-    }
+    a { color: $primary-light; }
     @media screen and (max-width: $breakpoint) {
         padding: $margin-small;
     }
@@ -422,6 +419,7 @@ pre {
 .social {
     float: left;
     a {
+        display: inline-block;
         width: 50px;
         padding: 0 10px;
         transition: color 0.2s;
