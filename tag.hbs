@@ -11,7 +11,7 @@
 <main id="content" class="content" role="main">
     <div class="inner">
 		<div class="scratch-page-number">
-		    &mdash; Category: {{tag.name}} &mdash;
+		    <span class="category-header">Category: <span class="tag-name capitalize">{{tag.name}}</span></span> &mdash; {{pagination.page}} &mdash;
 		</div>
 	    {{> loop}}
     </div>

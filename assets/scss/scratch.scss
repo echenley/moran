@@ -12,7 +12,9 @@ Author URI: http://henleyedition.com/
 // colors
 $primary-dark:     #222;
 $primary-light:    #fff;
-$primary-color:    #07c;
+$scratch-blue:     #07c;
+$scratch-red:      #f14650;
+$scratch-yellow:   #ed5;
 $transparent-dark: rgba($primary-dark, 0.8);
 $highlight:        #f5f2f0;
 $gray:             #ccc;
@@ -134,7 +136,7 @@ h6 { font-size: 0.75em; }
 }
 
 a {
-    color: $primary-color;
+    color: $scratch-blue;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
@@ -144,7 +146,7 @@ a {
 blockquote {
     margin: $margin-medium 0;
     padding: $margin-small;
-    border-left: $margin-small/2 solid rgba($primary-color,0.8);
+    border-left: $margin-small/2 solid rgba($scratch-blue,0.8);
     background: $highlight;
     clear: both;
     font-style: italic;
@@ -185,7 +187,7 @@ hr {
     margin: $margin-xl auto;
     text-align: center;
     border: none;
-    border-top: 1px solid $primary-color;
+    border-top: 1px solid $scratch-blue;
     @media screen and (max-width: $breakpoint) {
         margin: $margin-large auto;
     }
@@ -213,7 +215,7 @@ ul,ol {
     ul,ol {
         margin: 0.38em 0;
         padding-left: 1.1em;
-        // border-left: 1px solid rgba($primary-color, 0.4);
+        // border-left: 1px solid rgba($scratch-blue, 0.4);
     }
 }
 ol {
@@ -486,13 +488,13 @@ pre {
             text-decoration: none;
         }
         &:nth-child(3n+1):hover {
-            color: lighten($primary-color, 10%);
+            color: lighten($scratch-blue, 10%);
         }
         &:nth-child(3n+2):hover {
-            color: #ed5;
+            color: $scratch-yellow;
         }
         &:nth-child(3n+3):hover {
-            color: #f14650;
+            color: $scratch-red;
         }
     }
 }
@@ -539,8 +541,18 @@ pre {
 }
 
 .scratch-page-number {
+    position: relative;
     text-align: center;
     margin-bottom: $margin-xl;
+}
+
+.category-header {
+    position: absolute;
+    left: 0;
+}
+
+.tag-name {
+    color: $scratch-red;
 }
 
 
@@ -560,10 +572,9 @@ pre {
     display: inline-block;
     padding: 4px 8px;
     background: $highlight;
-    border-left: 6px solid rgba($primary-color, 0.8);
+    border-left: 6px solid rgba($scratch-blue, 0.8);
     font-size: 80%;
     margin-top: 6px;
-    text-transform: capitalize;
     &.icon-clock:before {
         margin-right: 6px;
     }
@@ -578,6 +589,10 @@ pre {
 
 /* Helper Classes
 ====================================== */
+
+.capitalize {
+    text-transform: capitalize;
+}
 
 .caption {
     // width is set via js function setCaptionWidth()
