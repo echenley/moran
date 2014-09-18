@@ -17,7 +17,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" sizes="any" type="image/svg+xml" href="{{asset "images/favicon.svg"}}">
+    <link rel="shortcut icon" href="{{asset "images/favicon.ico"}}">
     
     {{! Styles }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/scratch.css"}}">
@@ -32,12 +32,12 @@
     {{{body}}}
 
     <footer class="site-footer cf">
-        <section class="social cf">
+        <div class="social cf">
             <a href="https://github.com/echenley" class="icon-github" title="Evan's GitHub"><span class="hidden">GitHub</span></a>
             <a href="https://twitter.com/echenley" class="icon-twitter" title="Evan's Twitter"><span class="hidden">Twitter</span></a>
             <a href="https://plus.google.com/+EvanHenley" class="icon-gplus" title="Evan's Google+"><span class="hidden">Google+</span></a>
-        </section>
-        <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
+        </div>
+        <div class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</div>
     </footer>
 
     {{! Ghost outputs important scripts and data with this tag }}
