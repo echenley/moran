@@ -78,7 +78,7 @@ $monospace: "Andale Mono", AndaleMono, monospace;
 
 
 
-/* General
+/* html/body
 ====================================== */
 
 html {
@@ -391,8 +391,14 @@ pre {
     font-size: 140%;
     color: $primary-light;
     text-align: center;
+    &:before {
+        transition: transform 0.2s;
+    }
     &:hover {
         text-decoration: none;
+        &:before {
+            transform: translateY(-8px);
+        }
     }
 }
 
