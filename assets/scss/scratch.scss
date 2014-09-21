@@ -347,6 +347,12 @@ pre {
     }
 }
 
+.cover-image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
 .main-header-content {
     color: $primary-light;
 }
@@ -389,7 +395,7 @@ pre {
     width: 60px;
     height: 60px;
     margin-left: -30px;
-    font-size: 140%;
+    font-size: 160%;
     color: $primary-light;
     text-align: center;
     &:before {
