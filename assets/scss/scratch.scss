@@ -28,6 +28,7 @@ $margin-small:  17px;
 
 // dimensions
 $nav-height: 60px;
+$footer-height: $nav-height;
 $content-width: 700px;
 
 // media query breakpoints
@@ -451,7 +452,7 @@ pre {
 
 .copyright,
 .social {
-    line-height: 60px;
+    line-height: $footer-height;
     display: inline-block;
     @media screen and (max-width: $breakpoint) {
         display: block;
@@ -510,6 +511,39 @@ pre {
 
 
 
+/* Main Content
+====================================== */
+
+.content {
+    // this jazz ensures a sticky footer
+    min-height: 100%;
+    margin-bottom: -$footer-height;
+    padding: 2 * $margin-xl 0 (2 * $margin-xl + $footer-height) 0;
+}
+.home-template .content,
+.archive-template .content {
+    padding: 1.5 * $margin-xl 0 (1.5 * $margin-xl + $footer-height) 0;
+}
+
+.post-meta-item {
+    display: inline-block;
+    padding: 4px 8px;
+    background: $highlight;
+    border-left: 6px solid rgba($scratch-blue, 0.8);
+    font-size: 80%;
+    margin-top: 6px;
+    &.icon-clock:before {
+        margin-right: 6px;
+    }
+}
+
+.read-more:after {
+    margin: 0;
+    text-decoration: none;
+}
+
+
+
 /* Pagination
 ====================================== */
 .pagination {
@@ -557,36 +591,6 @@ pre {
 
 .tag-name {
     color: $scratch-red;
-}
-
-
-
-/* Main Content
-====================================== */
-
-.content {
-    padding: 2 * $margin-xl 0;
-}
-.home-template .content,
-.archive-template .content {
-    padding: 1.5 * $margin-xl 0;
-}
-
-.post-meta-item {
-    display: inline-block;
-    padding: 4px 8px;
-    background: $highlight;
-    border-left: 6px solid rgba($scratch-blue, 0.8);
-    font-size: 80%;
-    margin-top: 6px;
-    &.icon-clock:before {
-        margin-right: 6px;
-    }
-}
-
-.read-more:after {
-    margin: 0;
-    text-decoration: none;
 }
 
 
