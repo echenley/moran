@@ -510,11 +510,11 @@ pre {
 }
 
 .headroom--pinned {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
 }
 .headroom--unpinned {
-    transform: translateY(-100%);
+    transform: translateY(0, -100%, 0);
     opacity: 0;
 }
 
