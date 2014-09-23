@@ -393,6 +393,7 @@ pre {
     text-align: center;
     &:before {
         transition: transform 0.2s;
+        transform: translateY(0);
     }
     &:hover {
         text-decoration: none;
