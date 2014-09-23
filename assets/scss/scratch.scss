@@ -165,6 +165,11 @@ a {
     &:hover {
         text-decoration: underline;
     }
+    &:active,
+    &:focus {
+        outline-style: none;
+        -moz-outline-style:none;
+    }
 }
 
 blockquote {
@@ -371,8 +376,8 @@ pre {
 
 .main-header-content {
     transform: translateZ(0);
-    animation: slide-in 0.8s;
     color: $primary-light;
+    animation: slide-in 0.8s;
 }
 
 .page-title,
