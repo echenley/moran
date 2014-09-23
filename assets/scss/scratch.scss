@@ -87,7 +87,6 @@ $monospace: "Andale Mono", AndaleMono, Consolas, monaco, monospace;
 
 
 
-
 /* html/body
 ====================================== */
 
@@ -488,7 +487,6 @@ pre {
     background: $transparent-dark;
     text-align: center;
     font-size: 90%;
-    animation: fade-in 0.6s;
     a {
         display: inline-block;
         height: $nav-height;
@@ -530,7 +528,7 @@ pre {
     min-height: 100%;
     margin-bottom: -$footer-height;
     padding: 2 * $margin-xl 0 (2 * $margin-xl + $footer-height) 0;
-    animation: fade-in 0.6s;
+    animation: fade-in 0.8s;
 }
 .home-template .content,
 .archive-template .content {
