@@ -39,13 +39,12 @@ $breakpoint: 800px;
 /* Typography
 ====================================== */
 
-$font-size: 130%;
+$font-size: 140%;
 $line-height: 1.6;
 
 $heading-font: "Libre Baskerville", "Times New Roman", serif;
 $body-font: "Crimson Text", serif;
-$monospace: "Andale Mono", AndaleMono, monospace;
-
+$monospace: "Andale Mono", AndaleMono, Consolas, monaco, monospace;
 
 
 /* Icon Font
@@ -76,6 +75,16 @@ $monospace: "Andale Mono", AndaleMono, monospace;
 *, *:before, *:after {
     box-sizing: border-box;
 }
+
+
+/* Animations
+====================================== */
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 
 
 
@@ -353,7 +362,7 @@ pre {
 
 .page-title,
 .blog-description {
-    text-shadow: 0px 0px 80px $primary-dark;
+    text-shadow: 0px 0px 60px $primary-dark;
 }
 
 .blog-title {
@@ -381,24 +390,23 @@ pre {
 }
 
 .scroll-down {
-    display: block;
     position: absolute;
     bottom: 0;
     left: 50%;
     width: 60px;
     height: 60px;
     margin-left: -30px;
-    font-size: 160%;
+    font-size: 1.6em;
     color: $primary-light;
     text-align: center;
     &:before {
         transition: transform 0.2s;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
     }
     &:hover {
         text-decoration: none;
         &:before {
-            transform: translateY(-8px);
+            transform: translate3d(0, -8px, 0);
         }
     }
 }
@@ -481,6 +489,7 @@ pre {
     background: $transparent-dark;
     text-align: center;
     font-size: 90%;
+    animation: fade-in 0.6s;
     a {
         display: inline-block;
         height: $nav-height;
@@ -522,6 +531,7 @@ pre {
     min-height: 100%;
     margin-bottom: -$footer-height;
     padding: 2 * $margin-xl 0 (2 * $margin-xl + $footer-height) 0;
+    animation: fade-in 0.6s;
 }
 .home-template .content,
 .archive-template .content {
