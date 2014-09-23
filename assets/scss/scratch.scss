@@ -434,14 +434,14 @@ pre {
         &:hover {
             text-decoration: none;
         }
-        &.icon-gplus:hover {
-            color: #d34836;
-        }
         &.icon-twitter:hover {
             color: #4099ff;
         }
         &.icon-github:hover {
-            color: #f93;
+            color: lighten(#6CC644, 10%);
+        }
+        &.icon-rss:hover {
+            color: #fa9b39;
         }
         @media screen and (min-width: $breakpoint) {
             float: left;
@@ -481,7 +481,6 @@ pre {
     background: $transparent-dark;
     text-align: center;
     font-size: 90%;
-    transform: translateY(0);
     a {
         display: inline-block;
         height: $nav-height;
@@ -504,6 +503,10 @@ pre {
     }
 }
 
+.headroom--pinned {
+    transform: translateY(0);
+    opacity: 1;
+}
 .headroom--unpinned {
     transform: translateY(-100%);
     opacity: 0;
