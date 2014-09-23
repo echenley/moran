@@ -431,6 +431,7 @@ pre {
     font-size: 80%;
     background: $primary-dark;
     color: $primary-light;
+    transform: translateZ(1px);
     a { color: $primary-light; }
     @media screen and (max-width: $breakpoint) {
         padding: $margin-small;
