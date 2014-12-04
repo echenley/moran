@@ -40,19 +40,19 @@ $breakpoint: 800px;
 ====================================== */
 
 $font-size: 135%;
-$line-height: 1.6;
+$line-height: 1.55;
 
-$heading-font: "Libre Baskerville", "Times New Roman", serif;
-$body-font: "Crimson Text", serif;
-$monospace: "Andale Mono", AndaleMono, Consolas, monaco, monospace;
+$heading-font: 'Libre Baskerville', 'Times New Roman', serif;
+$body-font: 'Crimson Text', serif;
+$monospace: 'Andale Mono', AndaleMono, Consolas, monaco, monospace;
 
 
 /* Icon Font
 ====================================== */
-@import "_scratch-icons";
+@import 'scratch-icons';
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^='icon-'],
+[class*=' icon-'] {
     &:before,
     &:after {
         font-size: 90%;
@@ -64,7 +64,7 @@ $monospace: "Andale Mono", AndaleMono, Consolas, monaco, monospace;
 /* Normalize.css v2.1.3 | MIT License | git.io/normalize | (minified)
 ====================================================================== */
 
-@import '_normalize';
+@import 'normalize';
 
 * {
     -ms-word-wrap: break-word;
@@ -107,7 +107,7 @@ html {
 }
 
 html, html a {
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -122,10 +122,11 @@ body {
     font-size: $font-size;
     text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "kern" 1;
+    font-feature-settings: 'kern' 1;
     font-kerning: normal;
     @media screen and (max-device-width: 480px) {
         text-rendering: optimizeSpeed;
+        font-size: 120%;
     }
 }
 
@@ -136,7 +137,7 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: $heading-font;
-    font-feature-settings: "kern" 1, "liga";
+    font-feature-settings: 'kern' 1, 'liga';
     font-variant-ligatures: common-ligatures;
     line-height: 1.4;
     margin: $margin-medium 0;
@@ -168,14 +169,14 @@ a {
     &:active,
     &:focus {
         outline-style: none;
-        -moz-outline-style:none;
+        -moz-outline-style: none;
     }
 }
 
 blockquote {
     margin: $margin-medium 0;
     padding: $margin-small;
-    border-left: $margin-small/2 solid rgba($scratch-blue,0.8);
+    border-left: $margin-small/2 solid rgba($scratch-blue, 0.8);
     background: $highlight;
     clear: both;
     font-style: italic;
@@ -185,16 +186,16 @@ blockquote {
     }
     &.pullquote {
         background: none;
-        border-left: none;
+        border-left: 0;
         font-size: 150%;
         text-align: center;
-        quotes: "\201c" "\201d" "\2018" "\2019";
+        quotes: '\201c' '\201d' '\2018' '\2019';
         &:before { content: open-quote; }
-        &:after  { content: close-quote; }
+        &:after { content: close-quote; }
         @media screen and (min-width: $breakpoint) {
             margin-left: -10%;
             margin-right: -10%;
-        font-size: 200%;
+            font-size: 200%;
         }
     }
 }
@@ -207,7 +208,7 @@ cite {
     text-align: right;
     &:before {
         opacity: 0.5;
-        content: "\2014\20"
+        content: '\2014\20';
     }
 }
 
@@ -215,7 +216,7 @@ hr {
     height: 0;
     margin: $margin-xl auto;
     text-align: center;
-    border: none;
+    border: 0;
     border-top: 1px solid $scratch-blue;
     @media screen and (max-width: $breakpoint) {
         margin: $margin-large auto;
@@ -223,15 +224,6 @@ hr {
 }
 
 iframe {
-    max-width: 100%;
-    margin: $margin-medium auto;
-}
-
-// images
-
-.post-content img {
-    display: block;
-    height: auto;
     max-width: 100%;
     margin: $margin-medium auto;
 }
@@ -251,14 +243,13 @@ ol {
 }
 ul {
     list-style: none;
-}
-
-ul > li {
-    position: relative;
-    &:before {
-        position: absolute;
-        left: -$margin-small;
-        content: "\2013";
+    > li {
+        position: relative;
+        &:before {
+            position: absolute;
+            left: -$margin-small;
+            content: '\2013';
+        }
     }
 }
 
@@ -327,7 +318,7 @@ pre {
     *zoom: 1;
     &:before,
     &:after {
-        content: "";
+        content: '';
         display: table;
     }
     &:after {
@@ -338,6 +329,10 @@ pre {
 .vertical {
     display: table-cell;
     vertical-align: middle;
+}
+
+.shadow {
+    text-shadow: 0 0 100px $primary-dark;
 }
 
 // responsive wrapper
@@ -378,11 +373,6 @@ pre {
     transform: translateZ(0);
     color: $primary-light;
     animation: slide-in 0.8s;
-}
-
-.page-title,
-.blog-description {
-    text-shadow: 0px 0px 60px $primary-dark;
 }
 
 .blog-title {
@@ -468,7 +458,7 @@ pre {
             color: #4099ff;
         }
         &.icon-github:hover {
-            color: lighten(#6CC644, 10%);
+            color: lighten(#6cc644, 10%);
         }
         &.icon-rss:hover {
             color: #fa9b39;
@@ -519,7 +509,7 @@ pre {
         color: $primary-light;
         text-align: center;
         &:hover {
-            text-decoration: none;
+            text-decoration: 0;
         }
         &:nth-child(3n+1):hover {
             color: lighten($scratch-blue, 10%);
@@ -551,12 +541,22 @@ pre {
     // this jazz ensures a sticky footer
     min-height: 100%;
     margin-bottom: -$footer-height;
-    padding: 2 * $margin-xl 0 (2 * $margin-xl + $footer-height) 0;
+    padding: $margin-xl 0 (2 * $margin-xl + $footer-height) 0;
     animation: fade-in 0.8s;
 }
 .home-template .content,
 .archive-template .content {
     padding: 1.5 * $margin-xl 0 (1.5 * $margin-xl + $footer-height) 0;
+}
+
+.post-content {
+    padding-top: $margin-xl;
+    img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+        margin: $margin-medium auto;
+    }
 }
 
 .post-meta-item {
@@ -574,6 +574,22 @@ pre {
 .read-more:after {
     margin: 0;
     text-decoration: none;
+}
+
+.post-cover {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100vh;
+    margin-top: -$margin-xl;
+    background: $primary-dark no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    h1 {
+        color: $primary-light;
+        font-size: 2em;
+        text-align: center;
+    }
 }
 
 
@@ -655,8 +671,10 @@ pre {
 
 // .pullquote (see blockquote)
 
-img.align-left, .caption.align-left,
-img.align-right, .caption.align-right {
+img.align-left,
+img.align-right,
+.caption.align-left,
+.caption.align-right {
     max-width: 100% !important;
     margin: $margin-medium auto;
 }
@@ -693,7 +711,7 @@ img.align-right, .caption.align-right {
 
 /* Syntax Highlighting (prism.js)
 ====================================== */
-@import '_prism';
+@import 'prism';
 
 
 
