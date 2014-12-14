@@ -1,0 +1,4 @@
+.DS_Store
+.codekit-cache
+config.codekit
+.scss-lint.yml
