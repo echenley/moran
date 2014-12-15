@@ -4,17 +4,29 @@
 
 // Main Functions
 
-var scratchApp = (function($) {
+(function() {
+
+    var $ = (function() {
+        // simple dom retrieval function
+        // maps to $, limited to querySelector
+        var cache = {};
+        return function(s) {
+            var cachedEl = cache[s];
+            if (!cachedEl) {
+                cachedEl = document.querySelector(s);
+                cache[s] = cachedEl;
+            }
+            return cachedEl;
+        };
+    })();
 
 	var resizeVideosLoop;
 
     function addEndMark() {
         // appends a tombstone to the article
-        var postContent = $('.post-content', true);
-
+        var postContent = $('.post-content');
         if (postContent) {
             var lastElement = postContent.lastElementChild;
-
             if (lastElement.nodeName === 'P') {
                 var text = document.createTextNode(' \u220E');
                 lastElement.appendChild(text);
@@ -30,7 +42,6 @@ var scratchApp = (function($) {
             for (var i = 0; i < videos.length; i++) {
                 var video = videos[i],
                     aspectRatio = video.dataset ? video.dataset.aspectRatio : video.getAttribute('data-aspect-ratio');
-
                 video.style.width = newWidth + 'px';
                 video.style.height = newWidth * aspectRatio + 'px';
             }
@@ -129,7 +140,8 @@ var scratchApp = (function($) {
 
 	function setSmoothScroll(e) {
         e.preventDefault();
-        var targetId = e.target.href.split('#')[1], // gets hash value w/o the leading "#"
+        // get hash value w/o the leading "#"
+        var targetId = e.target.href.split('#')[1], 
             targetEl = document.getElementById(targetId);
         // if target exists, animate it
         if (targetEl) {
@@ -173,23 +185,6 @@ var scratchApp = (function($) {
 		}
 	}
 
-	return {
-		init: init
-	};
+	init();
 
-}((function() {
-    // simple dom retrieval function
-    // maps to $, limited to querySelector
-    var cache = {};
-    return function(s) {
-        var cachedEl = cache[s];
-        if (!cachedEl) {
-            cachedEl = document.querySelector(s);
-            cache[s] = cachedEl;
-        }
-        return cachedEl;
-    };
-}())));
-
-
-scratchApp.init();
+}());
