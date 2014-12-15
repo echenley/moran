@@ -21,7 +21,9 @@
     
     {{! Styles }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/scratch2.css"}}">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600|Libre+Baskerville&subset=latin,latin-ext">
+    {{!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Old+Standard+TT:400,700,400italic|Libre+Baskerville&subset=latin,latin-ext"> --}}
+    <script src="//use.typekit.net/iqs3otp.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
 
     {{ghost_head}}
     
@@ -39,17 +41,29 @@
 </head>
 <body class="{{body_class}}">
 
-    {{> navigation}}
+    <header class="site-header text-center">
+        <nav class="main-nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/projects">Projects</a>
+        </nav>
+        <h1 class="page-title blog-title">{{@blog.title}}</h1>
+        <div class="blog-description">{{@blog.description}}</div>
+    </header>
 
-    {{{body}}}
+    <main class="content inner cf" role="main">
+        {{{body}}}
+    </main>
 
-    <footer class="site-footer cf">
-        <div class="social cf">
+    <footer class="site-footer text-center">
+        <div class="social">
             <a href="https://github.com/echenley" class="icon-github" title="Evan's GitHub"><span class="hidden">GitHub</span></a>
             <a href="https://twitter.com/echenley" class="icon-twitter" title="Evan's Twitter"><span class="hidden">Twitter</span></a>
             <a href="http://henleyedition.com/rss" class="icon-rss" title="Evan's RSS feed"><span class="hidden">RSS Feed</span></a>
         </div>
-        <div class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</div>
+        <div class="copyright">
+            <a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}
+        </div>
     </footer>
 
     {{! Ghost outputs important scripts and data with this tag }}

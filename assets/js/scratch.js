@@ -1,7 +1,8 @@
 // @codekit-prepend "modules/smartquotes.js"
-// @codekit-prepend "modules/headroom.js"
 // @codekit-prepend "modules/smoothscroll.js"
-// @codekit-append "modules/requestAnimationFrame-shim.js"
+// @codekit-prepend "modules/requestAnimationFrame-shim.js"
+// @codekit-prepend "../node_modules/underscore/underscore.min.js"
+/* jshint ignore:end */
 
 (function() {
     'use strict';
@@ -20,37 +21,19 @@
         };
     })();
 
-	var resizeVideosLoop;
+    function setResponsiveVideo() {
+        // get all the videos
+        var videos = document.querySelectorAll('iframe[src*="//www.youtube.com"], iframe[src*="//player.vimeo.com"]');
 
-    function addEndMark() {
-        // appends a tombstone to the article
-        var postContent = $('.post-content');
-        if (postContent) {
-            var lastElement = postContent.lastElementChild;
-            if (lastElement.nodeName === 'P') {
-                var text = document.createTextNode(' \u220E');
-                lastElement.appendChild(text);
-            }
-        }
-    }
-
-    function resizeVideos(videos) {
-        var oldWidth = videos[0].offsetWidth,
-            newWidth = videos[0].parentNode.offsetWidth;
-
-        if (oldWidth !== newWidth) {
+        var resizeVideos =  _.debounce(function() {
+            var newWidth = videos[0].parentNode.offsetWidth;
             for (var i = 0; i < videos.length; i++) {
                 var video = videos[i],
                     aspectRatio = video.dataset ? video.dataset.aspectRatio : video.getAttribute('data-aspect-ratio');
                 video.style.width = newWidth + 'px';
                 video.style.height = newWidth * aspectRatio + 'px';
             }
-        }
-    }
-
-    function setResponsiveVideo() {
-        // get all the videos
-        var videos = document.querySelectorAll('iframe[src*="//www.youtube.com"], iframe[src*="//player.vimeo.com"]');
+        }, 300);
 
         // strip iframes of their height/width attributes
         if (videos.length) {
@@ -70,12 +53,12 @@
                 video.removeAttribute('width');
                 video.style.height = video.offsetWidth * aspectRatio + 'px';
             }
-            // check if videos need resize
-            resizeVideosLoop = window.setInterval(function() {
-                resizeVideos(videos);
-            }, 500);
+
+            window.addEventListener("resize", resizeVideos);
         }
     }
+
+
 
     function findPosition(el) {
         var offsetTop = 0;
@@ -119,14 +102,8 @@
 
 	function init() {
 
-		addEndMark();
 		setCaptionWidth();
 		setResponsiveVideo();
-
-		// .main-nav behavior
-		Headroom.options.tolerance = { up: 15, down: 0 };
-		var headroom  = new Headroom($('.main-nav'));
-		headroom.init();
 
 		// smooth scrolling hashlinks
 		var scrollDown = $('.scroll-down');

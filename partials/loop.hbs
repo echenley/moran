@@ -1,23 +1,13 @@
 {{#foreach posts}}
 
-    <article class="{{post_class}}">
+    <article class="{{post_class}} post-excerpt">
         <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-        <section class="post-excerpt">
-            <p>{{excerpt words="30"}}<a class="read-more icon-right" href="{{url}}"></a></p>
+        <section>
+            <p>
+                <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="MMMM DD, YYYY"}}</time>. {{excerpt words="50"}}<a class="read-more" href="{{url}}">&hellip;</a>
+            </p>
         </section>
-        <footer class="post-meta">
-            <time class="post-meta-item post-date icon-clock" datetime="{{date format='YYYY-MM-DD'}}">{{date format="MMMM DD, YYYY"}}</time>
-            {{#if tags}}
-                {{#foreach tags}}
-                <div class="post-meta-item tag icon-tag capitalize">
-                    <a href="{{url}}">{{name}}</a>
-                </div>
-                {{/foreach}}
-            {{/if}}
-        </footer>
     </article>
-
-    {{#if @last}}{{else}}<hr>{{/if}}
 
 {{/foreach}}
 

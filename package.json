@@ -1,4 +1,23 @@
 {
-  "name": "Scratch2",
-  "version": "0.1"
+  "name": "scratch2",
+  "version": "0.0.1",
+  "description": "Minimalist Theme For Ghost",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/echenley/scratch2.git"
+  },
+  "author": "Evan Henley",
+  "license": "none",
+  "bugs": {
+    "url": "https://github.com/echenley/scratch2/issues"
+  },
+  "homepage": "https://github.com/echenley/scratch2",
+  "devDependencies": {
+    "prism": "0.0.1",
+    "underscore": "^1.7.0"
+  }
 }
