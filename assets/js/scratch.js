@@ -1,10 +1,10 @@
 // @codekit-prepend "modules/smartquotes.js"
 // @codekit-prepend "modules/headroom.js"
+// @codekit-prepend "modules/smoothscroll.js"
 // @codekit-append "modules/requestAnimationFrame-shim.js"
 
-// Main Functions
-
 (function() {
+    'use strict';
 
     var $ = (function() {
         // simple dom retrieval function
@@ -77,66 +77,16 @@
         }
     }
 
-	//  Smooth Scrolling
-	function smoothScroll(targetEl, duration, callback) {
-
-	    function findPosition(el) {
-	        var offsetTop = 0;
-	        do {
-	            if (!isNaN(el.offsetTop)) {
-	                offsetTop += el.offsetTop;
-	            }
-	            el = el.offsetParent;
-	        } while(el);
-	        return offsetTop;
-	    }
-
-		// duration is total animation time
-		var endPosition = findPosition(targetEl),
-			startPosition = window.pageYOffset,
-			elapsedTime = 0,
-			distance = endPosition - startPosition,
-			interval = 16,   // approximately 60fps
-			currentPosition,
-			percent,         // percent of the way through animation
-			scrollInterval;
-
-		duration = duration || 500;
-
-		function applyEasing(time) {
-			// this is just a default quadratic ('easeinoutquad') bezier
-			return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
-		}
-
-		// where the magic happens
-		function loopPageScroll() {
-			elapsedTime += interval;
-			percent = elapsedTime / duration;
-			percent = percent > 1 ? 1 : percent;
-			currentPosition = startPosition + (distance * applyEasing(percent));
-
-			window.scrollTo(0, Math.floor(currentPosition));
-			// check if it should stop
-			stopPageScroll(currentPosition, endPosition, scrollInterval);
-		}
-
-		// remove the interval timer if endPosition/bottom of document is reached
-		function stopPageScroll(position, endPosition, scrollInterval) {
-			if (percent === 1 || ((window.innerHeight + currentPosition) >= document.height)) {
-				clearInterval(scrollInterval);
-				if (callback) {
-					callback();
-				}
-			}
-		}
-
-		// set an interval timer for scrolling
-		function startPageScroll() {
-			scrollInterval = setInterval(loopPageScroll, interval);
-		}
-
-		startPageScroll();
-	}
+    function findPosition(el) {
+        var offsetTop = 0;
+        do {
+            if (!isNaN(el.offsetTop)) {
+                offsetTop += el.offsetTop;
+            }
+            el = el.offsetParent;
+        } while (el);
+        return offsetTop;
+    }
 
 	function setSmoothScroll(e) {
         e.preventDefault();
@@ -145,7 +95,7 @@
             targetEl = document.getElementById(targetId);
         // if target exists, animate it
         if (targetEl) {
-            smoothScroll(targetEl, 800);
+            smoothScroll(findPosition(targetEl), 800);
         }
 	}
 

@@ -13,20 +13,17 @@ $primary-light:    #fff;
 $scratch-blue:     #07c;
 $scratch-red:      #f14650;
 $scratch-yellow:   #ed5;
-$transparent-dark: rgba($primary-dark, 0.8);
 $highlight:        #f5f2f0;
-$gray:             #ccc;
-$light-gray:       #ddd;
 
 // margins/padding
-$margin-xl:  50px;
-$margin-large: 40px;
+$margin-xl:     50px;
+$margin-large:  40px;
 $margin-medium: 28px;
 $margin-small:  17px;
 
 // dimensions
-$nav-height: 60px;
-$footer-height: $nav-height;
+$nav-height:    60px;
+$footer-height: 60px;
 $content-width: 700px;
 
 // media query breakpoints
@@ -256,9 +253,9 @@ th {
     font-weight: 400;
 }
 tbody tr {
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid #ccc;
     &:hover {
-        background: rgba($gray, 0.1);
+        background: rgba(#ccc, 0.1);
     }
     &:last-child {
         border-bottom: 1px solid $primary-dark;
