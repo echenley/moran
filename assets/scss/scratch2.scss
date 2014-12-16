@@ -379,7 +379,6 @@ strong, b {
 .site-footer {
     margin-top: 6em;
     margin-bottom: 4em;
-    padding: $margin-medium;
     color: $header-color;
     a { color: $header-color; }
     a:hover { color: $scratch-blue; }
@@ -398,7 +397,7 @@ strong, b {
 }
 
 .copyright {
-    margin-top: 1.5em;
+    margin-top: 1em;
     font-size: 90%;
 }
 
