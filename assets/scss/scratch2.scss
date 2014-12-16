@@ -180,20 +180,6 @@ blockquote {
         margin: 0;
     }
     color: $header-color;
-    &.pullquote {
-        background: none;
-        border-left: 0;
-        font-size: 150%;
-        text-align: center;
-        quotes: '\201c' '\201d' '\2018' '\2019';
-        &:before { content: open-quote; }
-        &:after { content: close-quote; }
-        @media screen and (min-width: $breakpoint) {
-            margin-left: -10%;
-            margin-right: -10%;
-            font-size: 200%;
-        }
-    }
 }
 
 cite {
@@ -227,6 +213,9 @@ iframe {
 
 p {
     margin: $margin-small 0;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 img {
@@ -368,12 +357,16 @@ strong, b {
     font-size: 1.8em;
     a { color: $header-color; }
     a:hover { color: $scratch-blue; }
+    &:after,
+    &:before {
+        font-size: 0.84em;
+    }
     &:after { content: '\a0\b7'; }
     &:before { content: '\b7\a0'; }
 }
 
 .main-nav {
-    margin-top: 0.6em;
+    margin-top: 0.66em;
     a {
         padding: 0 6px;
     }
@@ -386,7 +379,7 @@ strong, b {
 
 .site-footer {
     margin-top: 6em;
-    margin-bottom: 3em;
+    margin-bottom: 4em;
     padding: $margin-medium;
     color: $header-color;
     a { color: $header-color; }
@@ -423,7 +416,7 @@ strong, b {
 }
 
 .timestamp {
-    margin-top: $margin-large;
+    margin: $margin-large 0 0 0;
     color: $header-color;
 }
 
