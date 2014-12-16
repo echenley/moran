@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/echenley/scratch2/issues"
   },
-  "homepage": "https://github.com/echenley/scratch2",
-  "devDependencies": {
-    "prism": "0.0.1",
-    "underscore": "^1.7.0"
-  }
+  "homepage": "https://github.com/echenley/scratch2"
 }

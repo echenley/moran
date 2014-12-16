@@ -1,8 +1,7 @@
+// @codekit-prepend "../../bower_components/underscore/underscore-min.js"
 // @codekit-prepend "modules/smartquotes.js"
 // @codekit-prepend "modules/smoothscroll.js"
 // @codekit-prepend "modules/requestAnimationFrame-shim.js"
-// @codekit-prepend "../node_modules/underscore/underscore.min.js"
-/* jshint ignore:end */
 
 (function() {
     'use strict';
@@ -24,7 +23,6 @@
     function setResponsiveVideo() {
         // get all the videos
         var videos = document.querySelectorAll('iframe[src*="//www.youtube.com"], iframe[src*="//player.vimeo.com"]');
-
         var resizeVideos =  _.debounce(function() {
             var newWidth = videos[0].parentNode.offsetWidth;
             for (var i = 0; i < videos.length; i++) {

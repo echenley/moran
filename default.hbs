@@ -42,13 +42,12 @@
 <body class="{{body_class}}">
 
     <header class="site-header text-center">
+        <h1 class="page-title blog-title"><a href="/">{{@blog.title}}</a></h1>
+        <div class="blog-description faded">{{@blog.description}}</div>
         <nav class="main-nav">
-            <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/projects">Projects</a>
         </nav>
-        <h1 class="page-title blog-title">{{@blog.title}}</h1>
-        <div class="blog-description">{{@blog.description}}</div>
     </header>
 
     <main class="content inner cf" role="main">

@@ -1,6 +1,10 @@
 /* Utilities/Helper Classes
 ====================================== */
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 .cf {
     *zoom: 1;
     &:before,
@@ -22,7 +26,7 @@
 .inner {
     position: relative;
     width: 90%;
-    max-width: 660px;
+    max-width: $content-width;
     margin: 0 auto;
 }
 
@@ -43,11 +47,23 @@
 
 .pointer { cursor: pointer !important; }
 .no-underline { text-decoration: none !important; }
-.faded { opacity: 0.7; }
+.faded { opacity: 0.6; }
 .shadow { text-shadow: 0 0 100px $primary-dark; }
 
 .sr-only {
     position: absolute;
     top: -9999px;
     left: -9999px;
+}
+
+.caption {
+    // width is set via js function setCaptionWidth()
+    margin: $margin-medium auto;
+    padding-bottom: 1em;
+    font-size: 80%;
+    text-align: center;
+    max-width: 100%;
+    img {
+        margin: 0 auto 1em auto;
+    }
 }

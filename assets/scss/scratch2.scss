@@ -13,75 +13,31 @@ $primary-dark:     #222;
 $primary-light:    #fff;
 $scratch-blue:     #07c;
 $scratch-red:      #f14650;
-$highlight:        #f5f2f0;
 $header-color:     lighten($primary-dark, 30%);
+$highlight:        #ecf1f7;
 
 // margins/padding
-$margin-xl:     50px;
-$margin-large:  40px;
-$margin-medium: 28px;
-$margin-small:  17px;
+$margin-large:  2.4rem;
+$margin-medium: 1.7rem;
+$margin-small:  1.05rem;
 
 // dimensions
 $nav-height:    60px;
 $footer-height: 60px;
-$content-width: 700px;
+$content-width: 660px;
 
 // media query breakpoints
-$breakpoint: 800px;
+$breakpoint: $content-width;
 
 
 
-/* Typography
+/* Imports
 ====================================== */
 
-$font-size: 95%;
-$line-height: 1.76;
-$font-weight: 300;
-$bold-weight: 600;
-$heading-weight: 400;
-
-@mixin monospace {
-    font-family: 'Andale Mono', AndaleMono, Consolas, monaco, monospace;
-    font-size: 0.9em;
-}
-
-@import 'icons';
-
-h1,h2,h3,h4,h5,h6 {
-    // font-family: $heading-font;
-    font-feature-settings: 'kern' 1, 'liga';
-    font-variant-ligatures: common-ligatures;
-    font-weight: $heading-weight;
-    line-height: 1.4;
-    margin: $margin-small 0;
-    color: $header-color;
-}
-
-h1 {
-    font-size: 2em;
-    margin: 0.6em 0;
-}
-h2 {
-    font-size: 1.6em;
-}
-h3 { font-size: 1.4em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 0.9em; }
-h6 { font-size: 0.75em; }
-
-@media screen and (max-width: $breakpoint) {
-    h1 { font-size: 1.4em; }
-    h2 { font-size: 1.1em; }
-    h3 { font-size: 0.9em; }
-    h4 { font-size: 0.9em; }
-}
-
-
-/* Normalize.css v2.1.3 | MIT License | git.io/normalize | (minified)
-====================================================================== */
-
 @import 'normalize';
+@import 'prism';
+@import 'utilities';
+@import 'icons';
 
 * {
     -ms-word-wrap: break-word;
@@ -96,21 +52,74 @@ h6 { font-size: 0.75em; }
 
 
 
-/* Syntax Highlighting (prism.js)
-====================================== */
-@import 'prism';
-
-
-
-/* Utilities/Helper Classes
+/* Typography
 ====================================== */
 
-@import 'utilities';
+$font-size: 95%;
+$mobile-font-size: 88%;
+$line-height: 1.76;
+$font-weight: 300;
+$bold-weight: 600;
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 500;
+    line-height: 1.4;
+    margin: $margin-small 0;
+    color: $header-color;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.6em 0;
+    .post & {
+        margin-top: 0;
+    }
+}
+
+h2 {
+    font-weight: 300;
+    margin: 0.7em 0;
+    font-size: 1.8em;
+    .post-excerpt & {
+        margin-top: 0;
+    }
+}
+h3 {
+    font-size: 1.4em;
+}
+h4 { font-size: 1.2em; }
+h5 { font-size: 1em; }
+h6 { font-size: 0.9em; }
+
+
+
+/* Mixins
+====================================== */
+
+@mixin monospace {
+    font-family: 'Fira Mono', Consolas, Monaco, 'Andale Mono', monospace !important;
+    font-size: 0.92em;
+}
+
+@mixin link-hover {
+    transition: color 0.2s;
+    &:hover {
+        color: lighten($scratch-blue, 15%);
+    }
+}
 
 
 
 /* html/body
 ====================================== */
+
+::selection {
+  background: #e9f1f7; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: #e9f1f7; /* Gecko Browsers */
+}
 
 html {
     height: 100%;
@@ -131,16 +140,15 @@ body {
     max-height: 100%;
     line-height: $line-height;
     color: $primary-dark;
-    // font-family: $body-font;
     font-size: $font-size;
     font-weight: $font-weight;
     text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-    font-feature-settings: 'kern' 1;
-    font-kerning: normal;
     @media screen and (max-device-width: 480px) {
         text-rendering: optimizeSpeed;
-        font-size: 120%;
+    }
+    @media screen and (max-width: $breakpoint) {
+        font-size: $mobile-font-size;
     }
 }
 
@@ -152,10 +160,7 @@ body {
 a {
     color: $scratch-blue;
     text-decoration: none;
-    transition: color 0.2s;
-    &:hover {
-        color: lighten($scratch-blue, 10%);
-    }
+    @include link-hover();
     &:active,
     &:focus {
         outline-style: none;
@@ -164,16 +169,17 @@ a {
 }
 
 blockquote {
-    margin: $margin-medium 0;
-    padding: $margin-small;
-    border-left: $margin-small/2 solid rgba($scratch-blue, 0.8);
-    background: $highlight;
+    margin: $margin-medium $margin-large;
+    @media screen and (max-width: $breakpoint) {
+        margin: $margin-medium $margin-small;
+    }
     clear: both;
     font-style: italic;
     p:first-child,
     p:last-child {
         margin: 0;
     }
+    color: $header-color;
     &.pullquote {
         background: none;
         border-left: 0;
@@ -205,7 +211,7 @@ cite {
 hr {
     height: 2px;
     width: 40px;
-    margin: $margin-xl auto;
+    margin: $margin-large auto;
     border: 0;
     background: $scratch-blue;
     @media screen and (max-width: $breakpoint) {
@@ -216,7 +222,11 @@ hr {
 iframe {
     width: 100%;
     max-width: 100%;
-    margin: $margin-medium auto;
+    margin: 0 auto;
+}
+
+p {
+    margin: $margin-small 0;
 }
 
 img {
@@ -226,6 +236,41 @@ img {
     margin: $margin-medium auto;
 }
 
+// below breakpoint
+.align-left,
+.align-right {
+    max-width: 100% !important;
+    margin: $margin-medium auto;
+}
+
+@media screen and (min-width: $breakpoint) {
+
+    .align-left,
+    .align-right {        
+        max-width: 50% !important;
+    }
+
+    .align-left {
+        float: left;
+        margin: 0 1.2em 0 0;   
+    }
+
+    .align-right {
+        float: right;
+        margin: 0 0 0 1.2em;
+    }
+
+    img.align-right,
+    .caption.align-right {
+        margin: 0.6em 0 0.6em 1.2em;     
+    }
+
+    img.align-left,
+    .caption.align-left {
+        margin: 0.6em 1.2em 0.6em 0;
+    }
+}
+
 
 // lists
 ul,ol {
@@ -233,7 +278,7 @@ ul,ol {
     padding-left: 1.5em;
     ul,ol {
         margin: 0.38em 0;
-        padding-left: 1.1em;
+        padding-left: $margin-large;
     }
 }
 ol {
@@ -255,14 +300,12 @@ ul {
 table {
     max-width: 100%;
     margin: $margin-medium auto;
-    border-top: 1px solid $primary-dark;
-    border-bottom: 1px solid $primary-dark;
     border-collapse: collapse;
     font-size: 90%;
     text-align: left;
 }
 thead {
-    border-bottom: 1px solid $primary-dark;
+    border-bottom: 1px solid $highlight;
 }
 th,td {
     padding: 0.6em;
@@ -271,12 +314,8 @@ th {
     font-weight: 400;
 }
 tbody tr {
-    border-bottom: 1px solid #ccc;
-    &:hover {
-        background: rgba(#ccc, 0.1);
-    }
-    &:last-child {
-        border-bottom: 1px solid $primary-dark;
+    &:not(:last-child) {
+        border-bottom: 1px solid $highlight;
     }
 }
 
@@ -290,15 +329,20 @@ pre * {
 
 code {
     @include monospace();
+    color: $header-color;
 }
 
 pre {
     @include monospace();
-    padding: 1em;
+    margin: $margin-medium 0;
+    padding-left: $margin-large;
+    @media screen and (max-width: $breakpoint) {
+        padding-left: $margin-small;
+    }
     overflow: auto;
     white-space: pre;
-    background: $highlight;
-    line-height: 1.2;
+    line-height: 1.6;
+    opacity: 0.8;
     &.wrap-text code {
         white-space: pre-wrap;
     }
@@ -314,11 +358,25 @@ strong, b {
 ====================================== */
 
 .site-header {
-    margin: 5em 0;
+    margin: 8em 0;
+    // margin-bottom: 6em;
 }
 
-.main-nav a {
-    padding: 0 6px;
+.blog-title {
+    margin: 0;
+    margin-bottom: 0.3em;
+    font-size: 1.8em;
+    a { color: $header-color; }
+    a:hover { color: $scratch-blue; }
+    &:after { content: '\a0\b7'; }
+    &:before { content: '\b7\a0'; }
+}
+
+.main-nav {
+    margin-top: 0.6em;
+    a {
+        padding: 0 6px;
+    }
 }
 
 
@@ -327,18 +385,19 @@ strong, b {
 ====================================== */
 
 .site-footer {
-    margin-top: 5em;
+    margin-top: 6em;
+    margin-bottom: 3em;
     padding: $margin-medium;
-    border-top: 1px solid #eee;
-    a { color: $primary-dark; }
+    color: $header-color;
+    a { color: $header-color; }
+    a:hover { color: $scratch-blue; }
 }
 
 .social {
+    font-size: 1.1em;
     a {
         display: inline-block;
-        width: 50px;
-        padding: 0 10px;
-        font-size: 90%;
+        padding: 10px 14px;
         transition: color 0.2s;
         &:hover {
             color: $scratch-blue;
@@ -346,18 +405,25 @@ strong, b {
     }
 }
 
+.copyright {
+    margin-top: 1.5em;
+    font-size: 90%;
+}
+
 
 /* Main Content
 ====================================== */
 
 .post-excerpt {
-    margin: 4em 0;
+    margin-top: 4em;
+    margin-bottom: 4.5em;
     &:first-child {
         margin-top: 0;
     }
 }
 
 .timestamp {
+    margin-top: $margin-large;
     color: $header-color;
 }
 
@@ -366,7 +432,6 @@ strong, b {
 ====================================== */
 .pagination {
     position: relative;
-    margin-top: $margin-xl;
     text-align: center;
 }
 
@@ -388,19 +453,4 @@ strong, b {
     @media screen and (max-width: $breakpoint) {
         display: none;
     }
-}
-
-.scratch-page-number {
-    position: relative;
-    text-align: center;
-    margin-bottom: $margin-xl;
-}
-
-.category-header {
-    position: absolute;
-    left: 0;
-}
-
-.tag-name {
-    color: $scratch-red;
 }
