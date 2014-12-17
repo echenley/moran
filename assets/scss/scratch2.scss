@@ -144,6 +144,8 @@ body {
     font-weight: $font-weight;
     text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1;
+    font-kerning: normal;
     @media screen and (max-device-width: 480px) {
         text-rendering: optimizeSpeed;
     }
