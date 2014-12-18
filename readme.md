@@ -1,4 +1,4 @@
-Scratch2 - A Theme for Ghost
+Moran - A Theme for Ghost
 ===========================
 
-Scratch2 is a minimalist theme for Ghost.
+Moran is a minimalist, typography-centric design ideal for long-form writing.
