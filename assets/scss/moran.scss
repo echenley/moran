@@ -1,5 +1,5 @@
 /*
-Theme Name: Scratch2
+Theme Name: Moran
 Author: Evan Henley
 Author URI: http://henleyedition.com/
 ====================================== */
@@ -12,7 +12,6 @@ Author URI: http://henleyedition.com/
 $primary-dark:     #222;
 $primary-light:    #fff;
 $scratch-blue:     #07c;
-$scratch-red:      #f14650;
 $header-color:     lighten($primary-dark, 30%);
 $highlight:        #ecf1f7;
 
@@ -66,6 +65,8 @@ h1,h2,h3,h4,h5,h6 {
     line-height: 1.4;
     margin: $margin-small 0;
     color: $header-color;
+    font-feature-settings: 'liga' 1;
+    font-variant-ligatures: common-ligatures;
 }
 
 h1 {
