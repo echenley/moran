@@ -65,7 +65,7 @@ h1,h2,h3,h4,h5,h6 {
     line-height: 1.4;
     margin: $margin-small 0;
     color: $header-color;
-    font-feature-settings: 'liga' 1;
+    font-feature-settings: 'liga';
     font-variant-ligatures: common-ligatures;
 }
 
@@ -145,7 +145,7 @@ body {
     font-weight: $font-weight;
     text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-    font-feature-settings: 'kern' 1;
+    font-feature-settings: 'kern';
     font-kerning: normal;
     @media screen and (max-device-width: 480px) {
         text-rendering: optimizeSpeed;
