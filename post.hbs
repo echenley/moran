@@ -4,6 +4,10 @@
 {{#post}}
 	<h1 class="post-title">{{title}}</h1>
     {{content}}
+    {{! Uncomment the following to enable tags: }}
+    {{!-- 
+        <p class="faded">{{tags separator=", " prefix="Tagged in:"}}</p>
+    --}}
     <p class="text-right timestamp">
         <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="MMMM DD, YYYY"}}</time>
     </p>
