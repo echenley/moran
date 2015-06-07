@@ -70,7 +70,9 @@
 
     {{! JavaScript }}
     <script type="text/javascript" src="{{asset "js/min/moran-min.js"}}"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    {{#is "post, page"}}
+    <script type="text/javascript" src="{{asset "js/min/prism-min.js"}}"></script>
+    {{/is}}
 
 </body>
 </html>
