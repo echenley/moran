@@ -588,3 +588,27 @@ strong, b {
     margin: 0;
     object-fit: cover;
 }
+
+
+/* Image captions (figure/figcaption, incl. Ghost image cards)
+====================================== */
+figure,
+.kg-image-card {
+    margin: $margin-medium 0;
+    img {
+        margin: 0 auto;
+    }
+}
+
+figcaption,
+.caption {
+    color: $header-color;
+    font-size: 0.85em;
+    line-height: 1.4;
+    text-align: center;
+}
+
+figure figcaption,
+.kg-image-card figcaption {
+    margin-top: 0.6em;
+}
