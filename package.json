@@ -1,6 +1,6 @@
 {
-  "name": "Moran",
-  "version": "1.0",
+  "name": "moran",
+  "version": "1.0.0",
   "description": "Minimalist Theme For Ghost",
   "main": "index.js",
   "scripts": {
@@ -10,10 +10,20 @@
     "type": "git",
     "url": "https://github.com/echenley/moran.git"
   },
-  "author": "Evan Henley",
+  "author": {
+    "name": "Evan Henley",
+    "email": "echenley@gmail.com",
+    "url": "https://github.com/echenley"
+  },
   "license": "none",
   "bugs": {
     "url": "https://github.com/echenley/moran/issues"
   },
-  "homepage": "https://github.com/echenley/moran"
+  "homepage": "https://github.com/echenley/moran",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "config": {
+    "posts_per_page": 5
+  }
 }

@@ -448,3 +448,28 @@ strong, b {
         display: none;
     }
 }
+
+/* Koenig editor card widths
+====================================== */
+.kg-width-wide {
+    position: relative;
+    width: 85vw;
+    min-width: 100%;
+    margin: 1.5em calc(50% - 50vw);
+    transform: translateX(calc(50vw - 50%));
+}
+
+.kg-width-full {
+    position: relative;
+    width: 100vw;
+    min-width: 100vw;
+    margin: 1.5em calc(50% - 50vw);
+    transform: translateX(calc(50vw - 50%));
+}
+
+.kg-width-wide img,
+.kg-width-full img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
